@@ -45,17 +45,6 @@ function formatAsDollar(value: number): string {
     return `${sign}$${Math.abs(value).toFixed(2)}`;
 }
 
-function formatP(p: string) {
-    const f = p.replace(/(\d{3})(\d{3})(\d{4})/, ")$1( $2-$3");
-    const r = f.split("").reverse().join("");
-    return r;
-}
-
-function Tcatnoc() {
-    const p = formatP(import.meta.env.VITE_P);
-    return <span className={styles.p}>{p}</span>;
-}
-
 const exampleTrips = [
     { name: "Walmart", miles: 2, minutes: 5 },
     { name: "Airport", miles: 8.6, minutes: 21 },
