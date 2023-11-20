@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HomePage, AboutPage, DrivePage, CodePage, AssistPage } from "@/pages";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Routes,
     Route,
     Link,
@@ -97,7 +97,7 @@ function NavigationInner() {
 }
 function Navigation() {
     return (
-        <Router basename="/atwerk">
+        <Router>
             <NavigationInner />
         </Router>
     );
