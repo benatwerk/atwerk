@@ -255,8 +255,8 @@ function DrivePage() {
                         </div>
                     </p>
                     <p>
-                        Feel free to contact me if you have any questions at{" "}
-                        <Tcatnoc /> or use the form below.
+                        Feel free to contact me if you have any questions using
+                        the form below or the number on my card.
                     </p>
                     <p>
                         <form

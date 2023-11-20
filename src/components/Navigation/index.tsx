@@ -97,7 +97,7 @@ function NavigationInner() {
 }
 function Navigation() {
     return (
-        <Router>
+        <Router basename="/atwerk">
             <NavigationInner />
         </Router>
     );

@@ -1,5 +1,6 @@
 {
     "name": "atwerk",
+    "homepage": "https://benatwerk.github.io/atwerk/",
     "private": true,
     "version": "0.0.0",
     "type": "module",
