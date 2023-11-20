@@ -33,7 +33,6 @@ function NavigationInner() {
         {
             name: "home",
             label: "Home",
-            path: "/",
             icon: <HomeIcon />,
             element: <HomePage />,
         },
@@ -88,8 +87,9 @@ function NavigationInner() {
                 })}
             </nav>
             <Routes>
-                {nav.map(({ name, path, element }) => (
-                    <Route path={path || `/${name}`} element={element} />
+                <Route path="/" element={<HomePage />} />
+                {nav.map(({ name, element }) => (
+                    <Route path={`/${name}`} element={element} />
                 ))}
             </Routes>
         </>

@@ -168,25 +168,32 @@ function DrivePage() {
                                     <td>{formatAsDollar(COST)}</td>
                                 </tr>
                                 <tr>
-                                    <td
-                                        colSpan={2}
-                                        style={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            gap: 10,
-                                        }}
-                                    >
-                                        <CashIcon title="Cash" size="30" />{" "}
-                                        <PaypalIcon title="Paypal" size="24" />{" "}
-                                        <VenmoIcon title="Venmo" size="22" />{" "}
-                                        <CashAppIcon
-                                            title="Cashapp"
-                                            size="20"
-                                        />{" "}
-                                        <BitcoinIcon
-                                            title="Bitcoin"
-                                            size="20"
-                                        />
+                                    <td colSpan={2}>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: 10,
+                                            }}
+                                        >
+                                            <CashIcon title="Cash" size="30" />{" "}
+                                            <PaypalIcon
+                                                title="Paypal"
+                                                size="24"
+                                            />{" "}
+                                            <VenmoIcon
+                                                title="Venmo"
+                                                size="22"
+                                            />{" "}
+                                            <CashAppIcon
+                                                title="Cashapp"
+                                                size="20"
+                                            />{" "}
+                                            <BitcoinIcon
+                                                title="Bitcoin"
+                                                size="20"
+                                            />
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
