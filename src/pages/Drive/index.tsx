@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet";
-import classNames from "classnames";
 import {
     CashIcon,
     CashAppIcon,
@@ -86,10 +85,6 @@ function DrivePage() {
                         with my ride service.
                     </p>
                     <p>
-                        <img
-                            className={classNames(styles.float, styles.right)}
-                            src="/images/drive/old-timey-albuquerque-02.png"
-                        />
                         Since you’ll have my contact information, I’ll be able
                         to give you rides when Ubers are hard to find. I’ll be
                         able to accommodate regular scheduled rides, and I’m
