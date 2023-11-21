@@ -10,6 +10,10 @@ interface TabsProps {
     children: ReactElement<TabProps>[];
 }
 
+// So I like traditional function syntax but linters are just more fogiving of arrow functions
+// but seriously, try doing this with something like
+// `function Tab(props: TabProps): React.ReactElement | null { ... }`
+// go ahead!
 export const Tab: FC<TabProps> = () => {
     return null;
 };

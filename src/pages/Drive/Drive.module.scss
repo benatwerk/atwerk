@@ -104,12 +104,18 @@
         }
     }
     form {
+        margin-top: 20px;
         label {
             display: block;
             margin-bottom: 0.5em;
+            &[for="email"]::after,
+            &[for="message"]::after {
+                content: " *";
+                color: rgb(254, 73, 73);
+            }
         }
 
-        input[type="email"],
+        input,
         textarea {
             width: 100%;
             padding: 0.8em;

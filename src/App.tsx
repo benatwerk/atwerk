@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import Navigation from "./components/Navigation";
+import { Navigation } from "./components/";
 
 import "@/App.scss";
 

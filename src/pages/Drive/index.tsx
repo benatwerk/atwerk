@@ -6,7 +6,7 @@ import {
     PaypalIcon,
     BitcoinIcon,
 } from "@/components/Icons";
-import { Tabs, Tab } from "@/components/Tabs";
+import { Tabs, Tab, Tcatnoc } from "@/components/";
 import styles from "./Drive.module.scss";
 import "./Drive.scss";
 
@@ -20,15 +20,9 @@ const minimumFare = 5.95; // Minimum fare for a ride
 const cancellationFee = 5.0; // Cancelation fee
 
 function calculateUberFare(miles: number, minutes: number): number {
-    // Round miles to the nearest whole number
-    const roundedMiles = Math.round(miles);
-
     // Calculate the fare
     let fare =
-        baseFare +
-        costPerMile * roundedMiles +
-        costPerMinute * minutes +
-        bookingFee;
+        baseFare + costPerMile * miles + costPerMinute * minutes + bookingFee;
 
     // Ensure fare is at least the minimum fare
     fare = Math.max(fare, minimumFare);
@@ -42,6 +36,9 @@ function calculateDifference(amount1: number, amount2: number): number {
 }
 
 function formatAsDollar(value: number): string {
+    if (Math.abs(value).toFixed(2) === "0.00") {
+        return `$0.00`;
+    }
     const sign = value < 0 ? "-" : "";
     return `${sign}$${Math.abs(value).toFixed(2)}`;
 }
@@ -60,11 +57,15 @@ function renderContactForm() {
             <form action="https://formspree.io/f/meqbwnaz" method="POST">
                 <div>
                     <label htmlFor="email">Your email:</label>
-                    <input id="email" type="email" name="email" />
+                    <input required id="email" name="email" type="email" />
+                </div>
+                <div>
+                    <label htmlFor="phone">Your phone:</label>
+                    <input id="phone" name="phone" type="tel" />
                 </div>
                 <div>
                     <label htmlFor="message">Your message:</label>
-                    <textarea id="message" name="message"></textarea>
+                    <textarea required id="message" name="message"></textarea>
                 </div>
                 <button type="submit">Send</button>
             </form>
@@ -135,6 +136,11 @@ function DrivePage() {
                                         </tr>
                                     </table>
                                 </div>
+                            </p>
+                            <p>
+                                Call me at <Tcatnoc /> or use the form below to
+                                contact me about a ride.
+                                {renderContactForm()}
                             </p>
                             <p>
                                 <h3>How Uber works in Albuquerque</h3>
@@ -283,7 +289,6 @@ function DrivePage() {
                                 questions using the form below or the number on
                                 my card.
                             </p>
-                            <p>{renderContactForm()}</p>
                         </div>
                     </Tab>
                     <Tab label="About me">
@@ -322,7 +327,11 @@ function DrivePage() {
                                 venues, where someone might prefer to ride with
                                 someone who they know is safe and respectful.
                             </p>
-                            <p>{renderContactForm()}</p>
+                            <p>
+                                Call me at <Tcatnoc /> or use the form below to
+                                contact me about a ride.
+                                {renderContactForm()}
+                            </p>
                         </div>
                     </Tab>
                 </Tabs>
