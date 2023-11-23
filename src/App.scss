@@ -24,3 +24,10 @@ body {
     padding: 80px 20px;
     padding-top: 80px;
 }
+
+a {
+    color: rgb(128, 166, 253);
+    &:hover {
+        color: rgb(118, 159, 255);
+    }
+}

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import { Navigation } from "./components/";
 
 import "@/App.scss";
@@ -6,10 +6,12 @@ import "@/App.scss";
 function App() {
     return (
         <>
-            <Helmet>
-                <title>@werk</title>
-            </Helmet>
-            <Navigation />
+            <HelmetProvider>
+                <Helmet>
+                    <title>@werk</title>
+                </Helmet>
+                <Navigation />
+            </HelmetProvider>
         </>
     );
 }

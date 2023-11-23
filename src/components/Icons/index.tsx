@@ -9,3 +9,4 @@ export { IoLogoVenmo as VenmoIcon } from "react-icons/io5";
 export { FaCcPaypal as PaypalIcon } from "react-icons/fa6";
 export { FaRegMoneyBillAlt as CashIcon } from "react-icons/fa";
 export { FaBitcoin as BitcoinIcon } from "react-icons/fa";
+export { LuVideotape as VideoIcon } from "react-icons/lu";

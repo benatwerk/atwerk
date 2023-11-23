@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import {
     CashIcon,
     CashAppIcon,
@@ -6,8 +6,8 @@ import {
     PaypalIcon,
     BitcoinIcon,
 } from "@/components/Icons";
-import { Tabs, Tab, Tcatnoc } from "@/components/";
-import styles from "./Drive.module.scss";
+import { Tabs, Tab, Tcatnoc, Hero, HeroTab } from "@/components/";
+import uiStyles from "@/ui.module.scss";
 import "./Drive.scss";
 
 const COST = 1.5;
@@ -79,117 +79,143 @@ function DrivePage() {
             <Helmet>
                 <title>me@car</title>
             </Helmet>
-            <div className={styles.container}>
-                <div className={styles.header}>
-                    <h1>Need a ride?</h1>
-                    <h2>I do that</h2>
-                </div>
+            <div className={uiStyles.container}>
+                <Hero>
+                    <HeroTab
+                        backgroundStyle={{
+                            backgroundImage:
+                                "url(/images/drive/drive-background-04.jpg)",
+                        }}
+                    >
+                        <h1>Need a ride?</h1>
+                        <h2>I do that</h2>
+                    </HeroTab>
+                </Hero>
                 <Tabs>
                     <Tab label="Better than Uber">
-                        <div className={styles.content}>
-                            <p>
+                        <div className={uiStyles.content}>
+                            <section>
                                 <h3>How I work in Albuquerque</h3>
-                                <div className={styles.tableContainer}>
+                                <div className={uiStyles.tableContainer}>
                                     <table>
-                                        <tr>
-                                            <th>Fee Type</th>
-                                            <th>Rate</th>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Cost per mile (rounded to
-                                                nearest)
-                                            </td>
-                                            <td>{formatAsDollar(COST)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={2}>
-                                                <div
-                                                    style={{
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        gap: 10,
-                                                    }}
-                                                >
-                                                    <CashIcon
-                                                        title="Cash"
-                                                        size="30"
-                                                    />{" "}
-                                                    <PaypalIcon
-                                                        title="Paypal"
-                                                        size="24"
-                                                    />{" "}
-                                                    <VenmoIcon
-                                                        title="Venmo"
-                                                        size="22"
-                                                    />{" "}
-                                                    <CashAppIcon
-                                                        title="Cashapp"
-                                                        size="20"
-                                                    />{" "}
-                                                    <BitcoinIcon
-                                                        title="Bitcoin"
-                                                        size="20"
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Fee Type</th>
+                                                <th>Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Cost per mile (rounded to
+                                                    nearest)
+                                                </td>
+                                                <td>{formatAsDollar(COST)}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colSpan={2}>
+                                                    <div
+                                                        style={{
+                                                            display: "flex",
+                                                            alignItems:
+                                                                "center",
+                                                            gap: 10,
+                                                        }}
+                                                    >
+                                                        <CashIcon
+                                                            title="Cash"
+                                                            size="30"
+                                                        />{" "}
+                                                        <PaypalIcon
+                                                            title="Paypal"
+                                                            size="24"
+                                                        />{" "}
+                                                        <VenmoIcon
+                                                            title="Venmo"
+                                                            size="22"
+                                                        />{" "}
+                                                        <CashAppIcon
+                                                            title="Cashapp"
+                                                            size="20"
+                                                        />{" "}
+                                                        <BitcoinIcon
+                                                            title="Bitcoin"
+                                                            size="20"
+                                                        />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 Call me at <Tcatnoc /> or use the form below to
                                 contact me about a ride.
                                 {renderContactForm()}
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 <h3>How Uber works in Albuquerque</h3>
-                                <div className={styles.tableContainer}>
+                                <div className={uiStyles.tableContainer}>
                                     <table>
-                                        <tr>
-                                            <th>Fee Type</th>
-                                            <th>Rate</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Base Fare</td>
-                                            <td>{formatAsDollar(baseFare)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cost Per Minute</td>
-                                            <td>
-                                                {formatAsDollar(costPerMinute)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cost Per Mile</td>
-                                            <td>
-                                                {formatAsDollar(costPerMile)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Booking Fee</td>
-                                            <td>
-                                                {formatAsDollar(bookingFee)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Minimum Fare</td>
-                                            <td>
-                                                {formatAsDollar(minimumFare)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cancellation Fee</td>
-                                            <td>
-                                                {formatAsDollar(
-                                                    cancellationFee
-                                                )}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dynamic Pricing</td>
-                                            <td>Variable (based on demand)</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Fee Type</th>
+                                                <th>Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Base Fare</td>
+                                                <td>
+                                                    {formatAsDollar(baseFare)}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cost Per Minute</td>
+                                                <td>
+                                                    {formatAsDollar(
+                                                        costPerMinute
+                                                    )}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cost Per Mile</td>
+                                                <td>
+                                                    {formatAsDollar(
+                                                        costPerMile
+                                                    )}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Booking Fee</td>
+                                                <td>
+                                                    {formatAsDollar(bookingFee)}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Minimum Fare</td>
+                                                <td>
+                                                    {formatAsDollar(
+                                                        minimumFare
+                                                    )}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cancellation Fee</td>
+                                                <td>
+                                                    {formatAsDollar(
+                                                        cancellationFee
+                                                    )}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dynamic Pricing</td>
+                                                <td>
+                                                    Variable (based on demand)
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                                 Rates may increase during times of high demand
@@ -198,8 +224,8 @@ function DrivePage() {
                                 number of available drivers versus ride
                                 requests, with higher multipliers during peak
                                 times.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 I tried to set my rates to approximate Ubers
                                 during down hours, so on the cheaper end, but I
                                 found this to be impossible because Uber's
@@ -215,92 +241,102 @@ function DrivePage() {
                                 trips, so I will also price match Uber. That
                                 way, no matter what, I should always be the
                                 better deal.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 If you look at that compared to Uber it can get
                                 a little dicey. Usually my price is less, but
                                 sometimes, it's more. That's why I offer to
                                 price match Uber.
-                                <div className={styles.tableContainer}>
+                                <div className={uiStyles.tableContainer}>
                                     <table>
-                                        <tr>
-                                            <th>Location</th>
-                                            <th>Miles</th>
-                                            <th>{formatAsDollar(COST)}/mile</th>
-                                            <th>
-                                                Uber's Estimated Lowest Fare
-                                            </th>
-                                            <th>Difference</th>
-                                            <th>
-                                                My Price after price matching
-                                            </th>
-                                        </tr>
-                                        {exampleTrips.map(
-                                            ({ name, miles, minutes }) => {
-                                                const myFare =
-                                                    COST * Math.round(miles);
-                                                const uberFare =
-                                                    calculateUberFare(
-                                                        miles,
-                                                        minutes
+                                        <thead>
+                                            <tr>
+                                                <th>Location</th>
+                                                <th>Miles</th>
+                                                <th>
+                                                    {formatAsDollar(COST)}/mile
+                                                </th>
+                                                <th>
+                                                    Uber's Estimated Lowest Fare
+                                                </th>
+                                                <th>Difference</th>
+                                                <th>
+                                                    My Price after price
+                                                    matching
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {exampleTrips.map(
+                                                ({ name, miles, minutes }) => {
+                                                    const myFare =
+                                                        COST *
+                                                        Math.round(miles);
+                                                    const uberFare =
+                                                        calculateUberFare(
+                                                            miles,
+                                                            minutes
+                                                        );
+                                                    const difference =
+                                                        calculateDifference(
+                                                            myFare,
+                                                            uberFare
+                                                        );
+                                                    return (
+                                                        <tr
+                                                            key={`exampleTrips-${name}`}
+                                                        >
+                                                            <td>{name}</td>
+                                                            <td>{miles}</td>
+                                                            <td>
+                                                                {formatAsDollar(
+                                                                    myFare
+                                                                )}
+                                                            </td>
+                                                            <td>
+                                                                {formatAsDollar(
+                                                                    uberFare
+                                                                )}
+                                                            </td>
+                                                            <td>
+                                                                {formatAsDollar(
+                                                                    difference
+                                                                )}
+                                                            </td>
+                                                            <td>
+                                                                {difference < 0
+                                                                    ? formatAsDollar(
+                                                                          myFare
+                                                                      )
+                                                                    : formatAsDollar(
+                                                                          uberFare
+                                                                      )}
+                                                            </td>
+                                                        </tr>
                                                     );
-                                                const difference =
-                                                    calculateDifference(
-                                                        myFare,
-                                                        uberFare
-                                                    );
-                                                return (
-                                                    <tr>
-                                                        <td>{name}</td>
-                                                        <td>{miles}</td>
-                                                        <td>
-                                                            {formatAsDollar(
-                                                                myFare
-                                                            )}
-                                                        </td>
-                                                        <td>
-                                                            {formatAsDollar(
-                                                                uberFare
-                                                            )}
-                                                        </td>
-                                                        <td>
-                                                            {formatAsDollar(
-                                                                difference
-                                                            )}
-                                                        </td>
-                                                        <td>
-                                                            {difference < 0
-                                                                ? formatAsDollar(
-                                                                      myFare
-                                                                  )
-                                                                : formatAsDollar(
-                                                                      uberFare
-                                                                  )}
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            }
-                                        )}
+                                                }
+                                            )}
+                                        </tbody>
                                     </table>
                                 </div>
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 Feel free to contact me if you have any
                                 questions using the form below or the number on
                                 my card.
-                            </p>
+                            </section>
                         </div>
                     </Tab>
                     <Tab label="About me">
-                        <div className={styles.content}>
-                            <p>
+                        <div className={uiStyles.content}>
+                            <section>
                                 Are you looking for someone you can call
                                 immediately and not worry about having Uber
                                 cancel on you or wonder who your driver will be?
                                 Have someone consistent to pick you up that will
                                 meet or beat Uber’s rates.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 Since you’ll have my contact information, I’ll
                                 be able to give you rides when Ubers are hard to
                                 find. I’ll be able to accommodate regular
@@ -309,8 +345,8 @@ function DrivePage() {
                                 would just prefer a driver with whom you can
                                 have a little more rapport, someone who can
                                 accommodate special requests or needs.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 One of the things that inspired me to offer this
                                 service directly is knowing people who work
                                 downtown and aren't always comfortable being
@@ -320,18 +356,18 @@ function DrivePage() {
                                 or to performances where they might be in
                                 costume, or they're just not comfortable riding
                                 with a complete stranger.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 I also offer discreet and safe rides for people
                                 going to and from late-night, LGBTQ, or other
                                 venues, where someone might prefer to ride with
                                 someone who they know is safe and respectful.
-                            </p>
-                            <p>
+                            </section>
+                            <section>
                                 Call me at <Tcatnoc /> or use the form below to
                                 contact me about a ride.
                                 {renderContactForm()}
-                            </p>
+                            </section>
                         </div>
                     </Tab>
                 </Tabs>

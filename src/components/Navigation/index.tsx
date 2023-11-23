@@ -1,5 +1,12 @@
 import { useEffect } from "react";
-import { HomePage, AboutPage, DrivePage, CodePage, AssistPage } from "@/pages";
+import {
+    HomePage,
+    AboutPage,
+    DrivePage,
+    VideoPage,
+    CodePage,
+    AssistPage,
+} from "@/pages";
 import {
     HashRouter as Router,
     Routes,
@@ -14,6 +21,7 @@ import {
     DriveIcon,
     CodeIcon,
     AssistIcon,
+    VideoIcon,
 } from "@/components/Icons";
 import styles from "./Navigation.module.scss";
 
@@ -51,6 +59,13 @@ function NavigationInner() {
             element: <DrivePage />,
         },
         {
+            name: "video",
+            label: "Video",
+            alt: "I edit, manage and produce video",
+            icon: <VideoIcon />,
+            element: <VideoPage />,
+        },
+        {
             name: "code",
             label: "Code",
             alt: "I can code",
@@ -73,7 +88,7 @@ function NavigationInner() {
                 {nav.map(({ name, label, alt, icon, disabled }) => {
                     return (
                         <Link
-                            key={name}
+                            key={`link-${name}`}
                             to={`/${name}`}
                             className={classNames({
                                 [styles.active]: name === path,
@@ -89,7 +104,11 @@ function NavigationInner() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 {nav.map(({ name, element }) => (
-                    <Route path={`/${name}`} element={element} />
+                    <Route
+                        key={`route-${name}`}
+                        path={`/${name}`}
+                        element={element}
+                    />
                 ))}
             </Routes>
         </>

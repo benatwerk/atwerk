@@ -68,7 +68,9 @@ function Tcatnoc() {
     const p = decipher(formatP(import.meta.env.VITE_P), 2);
     return (
         <>
-            <span className={styles.p}>{p}</span>
+            <a href="tel:{p}" className={styles.p}>
+                {p}
+            </a>
         </>
     );
 }
