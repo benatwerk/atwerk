@@ -10,7 +10,7 @@ function VideoPage() {
                 <title>video@werk</title>
             </Helmet>
             <div className={uiStyles.container}>
-                <Hero autoSlideDuration={0}>
+                <Hero autoSlideDuration={5000}>
                     <HeroTab
                         backgroundStyle={{
                             backgroundImage:
