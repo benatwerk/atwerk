@@ -1,4 +1,5 @@
 import React, { FC, useState, ReactElement } from "react";
+import classNames from "classnames";
 import styles from "./Tabs.module.scss";
 
 interface TabProps {
@@ -27,14 +28,14 @@ export const Tabs: FC<TabsProps> = ({ children }) => {
     }));
 
     return (
-        <div>
-            <ul className={styles.tabTitles}>
+        <>
+            <ul className={styles.tabs}>
                 {tabs.map((tab, index) => (
                     <li
                         key={index}
-                        className={
-                            activeTab === index ? `${styles.active}` : ""
-                        }
+                        className={classNames(styles.tab, {
+                            [styles.active]: activeTab === index,
+                        })}
                         onClick={() => setActiveTab(index)}
                     >
                         {tab.label}
@@ -42,6 +43,6 @@ export const Tabs: FC<TabsProps> = ({ children }) => {
                 ))}
             </ul>
             <div className={styles.tabContent}>{tabs[activeTab].content}</div>
-        </div>
+        </>
     );
 };

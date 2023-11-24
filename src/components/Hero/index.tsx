@@ -38,7 +38,31 @@ const HeroTab: React.FC<HeroTabProps> = ({
 
 const Hero: React.FC<HeroProps> = ({ autoSlideDuration, children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
     const slideCount = React.Children.count(children);
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart - touchEnd > 50) {
+            // Swipe left
+            const nextSlide =
+                currentSlide === slideCount - 1 ? 0 : currentSlide + 1;
+            setCurrentSlide(nextSlide);
+        } else if (touchStart - touchEnd < -50) {
+            // Swipe right
+            const prevSlide =
+                currentSlide === 0 ? slideCount - 1 : currentSlide - 1;
+            setCurrentSlide(prevSlide);
+        }
+    };
 
     useEffect(() => {
         let timer: number | undefined;
@@ -57,7 +81,12 @@ const Hero: React.FC<HeroProps> = ({ autoSlideDuration, children }) => {
     };
 
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             {React.Children.map(children, (child, index) => {
                 if (React.isValidElement<HeroTabProps>(child)) {
                     return React.cloneElement(child, {

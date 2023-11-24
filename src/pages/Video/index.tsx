@@ -1,7 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { Tab, Tabs, Hero, HeroTab } from "@/components";
+import { YoutubeIcon, InstagramIcon } from "@/components/Icons";
 import uiStyles from "@/ui.module.scss";
 import "./Video.scss";
+
+const examplesStyles = {
+    display: "flex",
+    alignItems: "center",
+    gap: ".5rem",
+};
 
 function VideoPage() {
     return (
@@ -220,10 +227,70 @@ function VideoPage() {
                             </section>
                         </div>
                     </Tab>
+                    <Tab label="Examples of work">
+                        <div className={uiStyles.content}>
+                            <section>
+                                <h2>Some of my work I'm able to show</h2>
+                                <p>Added with permission</p>
+                                <ul>
+                                    <li style={examplesStyles}>
+                                        <YoutubeIcon />
+                                        <a
+                                            href="https://www.youtube.com/@ExtraordinaryLove"
+                                            target="_new"
+                                        >
+                                            Extraordinary Love
+                                        </a>
+                                        <div>
+                                            Real Talk & F* it, it's Friday:
+                                            Editing and thumbnails
+                                        </div>
+                                    </li>
+                                    <li style={examplesStyles}>
+                                        <InstagramIcon />
+                                        <a
+                                            href="https://www.instagram.com/steph_sugar_/"
+                                            target="_new"
+                                        >
+                                            Steph Sugar
+                                        </a>
+                                        <div>
+                                            Filming and editing some reels and
+                                            stories. Editing for content sites.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </Tab>
                     <Tab label="Video Management">
                         <div className={uiStyles.content}>
                             <section>
                                 <h3>Video Managment</h3>
+                                <p>
+                                    Stay consistent and on track with your
+                                    content. I offer video management services
+                                    for content creators who want a consistent
+                                    and steady online presence but prefer to
+                                    stay focused on creation rather than content
+                                    administration.
+                                </p>
+                                <h4>Upload and Scheduling</h4>
+                                <p>
+                                    I charge <strong>$250 month</strong> as a
+                                    flat monthly rate. I’ll ensure your videos
+                                    are uploaded on schedule to your chosen
+                                    platforms.
+                                </p>
+                                <p>
+                                    If you're looking for more in-depth support,
+                                    such as fan interaction or a more hands-on
+                                    content strategy, let's start a dialogue.
+                                    These services are bespoke and depend on
+                                    your unique requirements, so we'll discuss
+                                    what you need and I can provide you with a
+                                    personalized quote.
+                                </p>
                             </section>
                         </div>
                     </Tab>
