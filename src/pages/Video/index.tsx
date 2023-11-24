@@ -3,6 +3,10 @@ import { Tab, Tabs, Hero, HeroTab } from "@/components";
 import { YoutubeIcon, InstagramIcon } from "@/components/Icons";
 import uiStyles from "@/ui.module.scss";
 import "./Video.scss";
+import heroImage1 from "/images/video/adobe-premiere-01.png";
+import heroImage2 from "/images/video/background-funboyz.png";
+import heroImage3 from "/images/video/background-schedule.png";
+import heroImage4 from "/images/video/cryptids-hero.png";
 
 const examplesStyles = {
     display: "flex",
@@ -20,8 +24,7 @@ function VideoPage() {
                 <Hero autoSlideDuration={5000}>
                     <HeroTab
                         backgroundStyle={{
-                            backgroundImage:
-                                "url(/images/video/adobe-premiere-01.png)",
+                            backgroundImage: `url(${heroImage1})`,
                         }}
                     >
                         <h1>I can edit that</h1>
@@ -29,8 +32,7 @@ function VideoPage() {
                     </HeroTab>
                     <HeroTab
                         backgroundStyle={{
-                            backgroundImage:
-                                "url(/images/video/background-funboyz.png)",
+                            backgroundImage: `url(${heroImage2})`,
                         }}
                     >
                         <h1>Uploading wherever</h1>
@@ -39,8 +41,7 @@ function VideoPage() {
                     </HeroTab>
                     <HeroTab
                         backgroundStyle={{
-                            backgroundImage:
-                                "url(/images/video/background-schedule.png)",
+                            backgroundImage: `url(${heroImage3})`,
                         }}
                     >
                         <h1>Help with scheduling</h1>
@@ -48,8 +49,7 @@ function VideoPage() {
                     </HeroTab>
                     <HeroTab
                         backgroundStyle={{
-                            backgroundImage:
-                                "url(/images/video/cryptids-hero.png)",
+                            backgroundImage: `url(${heroImage4})`,
                         }}
                     />
                 </Hero>

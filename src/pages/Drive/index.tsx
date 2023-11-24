@@ -9,6 +9,7 @@ import {
 import { Tabs, Tab, Tcatnoc, Hero, HeroTab } from "@/components/";
 import uiStyles from "@/ui.module.scss";
 import "./Drive.scss";
+import heroImage1 from "/images/drive/drive-background-04.jpg";
 
 const COST = 1.5;
 // Albuquerque Uber rates
@@ -83,8 +84,7 @@ function DrivePage() {
                 <Hero>
                     <HeroTab
                         backgroundStyle={{
-                            backgroundImage:
-                                "url(/images/drive/drive-background-04.jpg)",
+                            backgroundImage: `url(${heroImage1})`,
                         }}
                     >
                         <h1>Need a ride?</h1>
