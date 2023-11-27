@@ -1,12 +1,5 @@
 import { useEffect } from "react";
-import {
-    HomePage,
-    AboutPage,
-    DrivePage,
-    VideoPage,
-    CodePage,
-    AssistPage,
-} from "@/pages";
+import { HomePage, DrivePage, VideoPage, CodePage } from "@/pages";
 import {
     HashRouter as Router,
     Routes,
@@ -15,14 +8,7 @@ import {
     useLocation,
 } from "react-router-dom";
 import classNames from "classnames";
-import {
-    HomeIcon,
-    AboutIcon,
-    DriveIcon,
-    CodeIcon,
-    AssistIcon,
-    VideoIcon,
-} from "@/components/Icons";
+import { HomeIcon, DriveIcon, CodeIcon, VideoIcon } from "@/components/Icons";
 import styles from "./Navigation.module.scss";
 
 function NavigationInner() {
@@ -45,13 +31,6 @@ function NavigationInner() {
             element: <HomePage />,
         },
         {
-            name: "about",
-            label: "About",
-            alt: "About me",
-            icon: <AboutIcon />,
-            element: <AboutPage />,
-        },
-        {
             name: "drive",
             label: "Drive",
             alt: "I will drive you",
@@ -71,15 +50,7 @@ function NavigationInner() {
             alt: "I can code",
             icon: <CodeIcon />,
             element: <CodePage />,
-            disabled: true,
-        },
-        {
-            name: "assist",
-            label: "Assist",
-            alt: "Personal assistance",
-            icon: <AssistIcon />,
-            element: <AssistPage />,
-            disabled: true,
+            disabled: false,
         },
     ];
     return (
