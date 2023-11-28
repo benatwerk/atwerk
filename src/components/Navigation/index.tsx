@@ -31,11 +31,12 @@ function NavigationInner() {
             element: <HomePage />,
         },
         {
-            name: "drive",
-            label: "Drive",
-            alt: "I will drive you",
-            icon: <DriveIcon />,
-            element: <DrivePage />,
+            name: "code",
+            label: "Code",
+            alt: "I can code",
+            icon: <CodeIcon />,
+            element: <CodePage />,
+            disabled: false,
         },
         {
             name: "video",
@@ -45,12 +46,11 @@ function NavigationInner() {
             element: <VideoPage />,
         },
         {
-            name: "code",
-            label: "Code",
-            alt: "I can code",
-            icon: <CodeIcon />,
-            element: <CodePage />,
-            disabled: false,
+            name: "drive",
+            label: "Drive",
+            alt: "I will drive you",
+            icon: <DriveIcon />,
+            element: <DrivePage />,
         },
     ];
     return (

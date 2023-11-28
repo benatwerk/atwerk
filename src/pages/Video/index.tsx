@@ -1,5 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { Tab, Tabs, Hero, HeroTab } from "@/components";
+import {
+    Tab,
+    Tabs,
+    Hero,
+    HeroTab,
+    Card,
+    CardTitle,
+    CardContent,
+} from "@/components";
 import { YoutubeIcon, InstagramIcon } from "@/components/Icons";
 import uiStyles from "@/ui.module.scss";
 import "./Video.scss";
@@ -7,12 +15,8 @@ import heroImage1 from "/images/video/adobe-premiere-01.png";
 import heroImage2 from "/images/video/background-funboyz.png";
 import heroImage3 from "/images/video/background-schedule.png";
 import heroImage4 from "/images/video/cryptids-hero.png";
-
-const examplesStyles = {
-    display: "flex",
-    alignItems: "center",
-    gap: ".5rem",
-};
+import extraordinaryLoveImage from "/images/video/example-extraordinary-love.jpg";
+import stephsugarImage from "/images/video/example-steph-sugar1.jpg";
 
 function VideoPage() {
     return (
@@ -232,32 +236,40 @@ function VideoPage() {
                             <section>
                                 <h2>Some of my work I'm able to show</h2>
                                 <p>Added with permission</p>
-                                <ul>
-                                    <li style={examplesStyles}>
-                                        <YoutubeIcon />
-                                        <a
+                                <ul className={uiStyles.examples}>
+                                    <li>
+                                        <Card
                                             href="https://www.youtube.com/@ExtraordinaryLove"
-                                            target="_new"
+                                            backgroundStyle={{
+                                                backgroundImage: `url(${extraordinaryLoveImage})`,
+                                            }}
                                         >
-                                            Extraordinary Love
-                                        </a>
-                                        <div>
-                                            Real Talk & F* it, it's Friday:
-                                            Editing and thumbnails
-                                        </div>
+                                            <CardTitle>
+                                                <YoutubeIcon /> Extraordinary
+                                                Love
+                                            </CardTitle>
+                                            <CardContent>
+                                                Real Talk & F* it, it's Friday:
+                                                Editing and thumbnails
+                                            </CardContent>
+                                        </Card>
                                     </li>
-                                    <li style={examplesStyles}>
-                                        <InstagramIcon />
-                                        <a
-                                            href="https://www.instagram.com/steph_sugar_/"
-                                            target="_new"
+                                    <li>
+                                        <Card
+                                            href="https://www.instagram.com/steph_sugar_"
+                                            backgroundStyle={{
+                                                backgroundImage: `url(${stephsugarImage})`,
+                                            }}
                                         >
-                                            Steph Sugar
-                                        </a>
-                                        <div>
-                                            Filming and editing some reels and
-                                            stories. Editing for content sites.
-                                        </div>
+                                            <CardTitle>
+                                                <InstagramIcon /> Steph Sugar
+                                            </CardTitle>
+                                            <CardContent>
+                                                Filming and editing some reels
+                                                and stories. Editing for content
+                                                sites.
+                                            </CardContent>
+                                        </Card>
                                     </li>
                                 </ul>
                             </section>

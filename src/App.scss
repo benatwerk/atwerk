@@ -1,3 +1,4 @@
+@use "_variables" as *;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&family=Lato:wght@400;700&display=swap");
 
 body {
@@ -26,8 +27,8 @@ body {
 }
 
 a {
-    color: rgb(128, 166, 253);
+    color: $link-color;
     &:hover {
-        color: rgb(118, 159, 255);
+        color: $link-hover-color;
     }
 }

@@ -1,16 +1,20 @@
 import { Helmet } from "react-helmet-async";
-import { Tab, Tabs, Hero, HeroTab } from "@/components";
+import {
+    Tab,
+    Tabs,
+    Hero,
+    HeroTab,
+    Card,
+    CardTitle,
+    CardContent,
+} from "@/components";
 import uiStyles from "@/ui.module.scss";
 import "./Code.scss";
 import heroImage1 from "/images/code/marquee-blink.jpg";
 import heroImage2 from "/images/code/hero-otter.png";
-
-const examplesStyles = {
-    display: "flex",
-    alignItems: "center",
-    gap: ".5rem",
-    whiteSpace: "nowrap" as const,
-};
+import githubChatImage from "/images/code/examples-github-chat.jpg";
+import githubCodePageImage from "/images/code/examples-github-codepage.jpg";
+import linkedinImage from "/images/code/examples-linkedin-header.jpg";
 
 function CodePage() {
     return (
@@ -40,17 +44,18 @@ function CodePage() {
                             <section>
                                 <h2>Frontend Coding</h2>
                                 <p>
-                                    I'm a Frontend Developer with a passion for
-                                    crafting intuitive and dynamic user
-                                    experiences. With years of expertise honed
-                                    at industry leaders like Blue Origin and Dun
-                                    & Bradstreet, I specialize in JavaScript,
-                                    React, TypeScript, and a broad range of
-                                    modern web technologies. I’ve led
-                                    significant projects transitioning platforms
-                                    to cutting-edge frameworks and have a keen
-                                    eye for detail in creating accessible,
-                                    high-performance web solutions.
+                                    I've been a Frontend Developer for 16 years.
+                                    I've worked at small start-ups, large
+                                    enterprise SaaS companies like Dun &amp;
+                                    Bradstreet and consulted at companies like
+                                    Blue Origin on the UI Platform Team. I
+                                    specialize in JavaScript, React, TypeScript,
+                                    and a broad range of modern web
+                                    technologies. I’ve led significant projects
+                                    transitioning platforms to cutting-edge
+                                    frameworks and have a keen eye for detail in
+                                    creating accessible, high-performance web
+                                    applications.
                                 </p>
                                 <p>
                                     I understand that every project has unique
@@ -68,7 +73,7 @@ function CodePage() {
                                     I’m also deeply invested in contributing to
                                     causes and projects that resonate with me
                                     personally. For such passion projects, my
-                                    rate starts at $30/hour and is negotiable,
+                                    rate starts at $30/hour but is negotiable,
                                     as I believe in supporting impactful
                                     initiatives.
                                 </p>
@@ -154,37 +159,43 @@ function CodePage() {
                     <Tab label="Find me and my code">
                         <div className={uiStyles.content}>
                             <section>
-                                <ul>
-                                    <li style={examplesStyles}>
-                                        <a
+                                <ul className={uiStyles.examples}>
+                                    <li>
+                                        <Card
                                             href="https://github.com/benatwerk"
-                                            target="_new"
+                                            backgroundStyle={{
+                                                backgroundImage: `url(${githubChatImage})`,
+                                            }}
                                         >
-                                            My github
-                                        </a>
-                                        <div>
-                                            I only really started adding
-                                            projects here recenlty. I've been
-                                            working so I haven't worked on my
-                                            own porjects for a while. But it
-                                            seems the job market has changed so
-                                            I started adding random projects I
-                                            work on here.
-                                        </div>
-                                        <a
-                                            href="https://github.com/benatwerk/atwerk"
-                                            target="_new"
-                                        >
-                                            This site is there.
-                                        </a>
+                                            <CardTitle>My github</CardTitle>
+                                            <CardContent>
+                                                I only really started adding
+                                                projects here recenlty. I hadn't
+                                                worked on my own projects.
+                                            </CardContent>
+                                        </Card>
                                     </li>
-                                    <li style={examplesStyles}>
-                                        <a
-                                            href="https://www.linkedin.com/in/ben-holland-4a36171/"
-                                            target="_new"
+                                    <li>
+                                        <Card
+                                            href="https://github.com/benatwerk/atwerk"
+                                            backgroundStyle={{
+                                                backgroundImage: `url(${githubCodePageImage})`,
+                                            }}
                                         >
-                                            My linkedin
-                                        </a>
+                                            <CardTitle>
+                                                This site is there too
+                                            </CardTitle>
+                                        </Card>
+                                    </li>
+                                    <li>
+                                        <Card
+                                            href="https://www.linkedin.com/in/ben-holland-4a36171/"
+                                            backgroundStyle={{
+                                                backgroundImage: `url(${linkedinImage})`,
+                                            }}
+                                        >
+                                            <CardTitle>My linkedin</CardTitle>
+                                        </Card>
                                     </li>
                                 </ul>
                             </section>
