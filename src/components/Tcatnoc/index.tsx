@@ -59,6 +59,10 @@ function decipher(text: string, shift: number): string {
 
 // Hide number from the bots
 function Tcatnoc() {
+    function makeT(str: string) {
+        const t = str.replace(/\D/g, "");
+        return t.split("").reverse().join("");
+    }
     function formatP(p: string) {
         const f = p.replace(/(\d{3})(\d{3})(\d{4})/, ")$1( $2-$3");
         const r = f.split("").reverse().join("");
@@ -68,7 +72,9 @@ function Tcatnoc() {
     const p = decipher(formatP(import.meta.env.VITE_P), 2);
     return (
         <>
-            <strong className={styles.p}>{p}</strong>
+            <a href={`tel:${makeT(p)}`} className={styles.p}>
+                {p}
+            </a>
         </>
     );
 }
