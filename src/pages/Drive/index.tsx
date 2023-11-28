@@ -322,8 +322,8 @@ function DrivePage() {
                             </section>
                             <section>
                                 Feel free to contact me if you have any
-                                questions using the form below or the number on
-                                my card.
+                                questions using the form below or at <Tcatnoc />
+                                {renderContactForm()}
                             </section>
                         </div>
                     </Tab>
