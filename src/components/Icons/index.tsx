@@ -11,3 +11,5 @@ export { FaRegMoneyBillAlt as CashIcon } from "react-icons/fa";
 export { FaBitcoin as BitcoinIcon } from "react-icons/fa";
 export { TbBrandYoutubeFilled as YoutubeIcon } from "react-icons/tb";
 export { TbBrandInstagram as InstagramIcon } from "react-icons/tb";
+export { FaGithub as GithubIcon } from "react-icons/fa6";
+export { FaLinkedin as LinkedInIcon } from "react-icons/fa6";

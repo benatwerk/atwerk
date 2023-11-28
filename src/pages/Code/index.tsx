@@ -8,6 +8,7 @@ import {
     CardTitle,
     CardContent,
 } from "@/components";
+import { GithubIcon, LinkedInIcon } from "@/components/Icons";
 import uiStyles from "@/ui.module.scss";
 import "./Code.scss";
 import heroImage1 from "/images/code/marquee-blink.jpg";
@@ -167,11 +168,14 @@ function CodePage() {
                                                 backgroundImage: `url(${githubChatImage})`,
                                             }}
                                         >
-                                            <CardTitle>My github</CardTitle>
+                                            <CardTitle>
+                                                <GithubIcon /> My Github
+                                            </CardTitle>
                                             <CardContent>
                                                 I only really started adding
                                                 projects here recenlty. I hadn't
-                                                worked on my own projects.
+                                                worked on my own projects for a
+                                                while.
                                             </CardContent>
                                         </Card>
                                     </li>
@@ -183,7 +187,8 @@ function CodePage() {
                                             }}
                                         >
                                             <CardTitle>
-                                                This site is there too
+                                                <GithubIcon /> This site is
+                                                there too
                                             </CardTitle>
                                         </Card>
                                     </li>
@@ -194,7 +199,9 @@ function CodePage() {
                                                 backgroundImage: `url(${linkedinImage})`,
                                             }}
                                         >
-                                            <CardTitle>My linkedin</CardTitle>
+                                            <CardTitle>
+                                                <LinkedInIcon /> My LinkedIn
+                                            </CardTitle>
                                         </Card>
                                     </li>
                                 </ul>
