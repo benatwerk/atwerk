@@ -6,43 +6,29 @@ import {
     PaypalIcon,
     BitcoinIcon,
 } from "@/components/Icons";
-import { Tabs, Tab, Tcatnoc, Hero, HeroTab } from "@/components/";
+import {
+    Tabs,
+    Tab,
+    Tcatnoc,
+    Hero,
+    HeroTab,
+    FareCalculator,
+} from "@/components/";
+import {
+    COST,
+    baseFare,
+    costPerMile,
+    costPerMinute,
+    minimumFare,
+    bookingFee,
+    cancellationFee,
+    calculateDifference,
+    calculateUberFare,
+    formatAsDollar,
+} from "@/utils/drive";
 import uiStyles from "@/ui.module.scss";
 import "./Drive.scss";
 import heroImage1 from "/images/drive/drive-background-04.jpg";
-
-const COST = 1.5;
-// Albuquerque Uber rates
-const baseFare = 1.0; // Base fare for every ride
-const costPerMile = 0.85; // Cost per mile
-const costPerMinute = 0.13; // Cost per minute
-const bookingFee = 2.95; // Booking fee
-const minimumFare = 5.95; // Minimum fare for a ride
-const cancellationFee = 5.0; // Cancelation fee
-
-function calculateUberFare(miles: number, minutes: number): number {
-    // Calculate the fare
-    let fare =
-        baseFare + costPerMile * miles + costPerMinute * minutes + bookingFee;
-
-    // Ensure fare is at least the minimum fare
-    fare = Math.max(fare, minimumFare);
-
-    return fare;
-}
-
-function calculateDifference(amount1: number, amount2: number): number {
-    const difference = amount1 - amount2;
-    return difference;
-}
-
-function formatAsDollar(value: number): string {
-    if (Math.abs(value).toFixed(2) === "0.00") {
-        return `$0.00`;
-    }
-    const sign = value < 0 ? "-" : "";
-    return `${sign}$${Math.abs(value).toFixed(2)}`;
-}
 
 const exampleTrips = [
     { name: "Walmart", miles: 2, minutes: 5 },
@@ -55,7 +41,11 @@ const exampleTrips = [
 function renderContactForm() {
     return (
         <>
-            <form action="https://formspree.io/f/meqbwnaz" method="POST">
+            <form
+                className={uiStyles.form}
+                action="https://formspree.io/f/meqbwnaz"
+                method="POST"
+            >
                 <div>
                     <label htmlFor="email">Your email:</label>
                     <input required id="email" name="email" type="email" />
@@ -319,6 +309,10 @@ function DrivePage() {
                                         </tbody>
                                     </table>
                                 </div>
+                            </section>
+                            <section>
+                                <h3>Calculate your own fare</h3>
+                                <FareCalculator />
                             </section>
                             <section>
                                 Feel free to contact me if you have any
