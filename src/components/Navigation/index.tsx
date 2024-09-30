@@ -17,19 +17,19 @@ function NavigationInner() {
         location.pathname
             .replace(/[^a-zA-Z0-9]/g, "")
             .replace(/\s+/g, "-")
-            .toLowerCase() || "home";
+            .toLowerCase() || "code";
 
     useEffect(() => {
         document.body.id = `page-${path}`;
     }, [path]);
 
     const nav = [
-        {
-            name: "home",
-            label: "Home",
-            icon: <HomeIcon />,
-            element: <HomePage />,
-        },
+        // {
+        //     name: "home",
+        //     label: "Home",
+        //     icon: <HomeIcon />,
+        //     element: <HomePage />,
+        // },
         {
             name: "code",
             label: "Code",
@@ -45,13 +45,13 @@ function NavigationInner() {
             icon: <VideoIcon />,
             element: <VideoPage />,
         },
-        {
-            name: "drive",
-            label: "Drive",
-            alt: "I will drive you",
-            icon: <DriveIcon />,
-            element: <DrivePage />,
-        },
+        // {
+        //     name: "drive",
+        //     label: "Drive",
+        //     alt: "I will drive you",
+        //     icon: <DriveIcon />,
+        //     element: <DrivePage />,
+        // },
     ];
     return (
         <>
@@ -73,7 +73,7 @@ function NavigationInner() {
                 })}
             </nav>
             <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<VideoPage />} />
                 {nav.map(({ name, element }) => (
                     <Route
                         key={`route-${name}`}
